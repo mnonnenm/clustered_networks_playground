@@ -59,6 +59,8 @@ pars.jXI  = 1.5;
 
 
 %% Assemble data
+sf = '/home/mackelab/Desktop/Projects/Stitching/results/cosyne_poster/gb_net/cluster/gb_nets';
+sf = [sf, '/test_large3'];
 if strcmp(sf, '')
     if_save = false;
 else
@@ -68,7 +70,7 @@ end
 
 spikes_all = [];
 if if_save
-    for i = 1:floor( (pars.T/pars.dt)/pars.chunksize )
+    for i = 1:150 %floor( (pars.T/pars.dt)/pars.chunksize )
         load([sf, '_ck', num2str(i)])
         disp(['loaded ', num2str(i)])
         spikes_all = [spikes_all; spikes];
